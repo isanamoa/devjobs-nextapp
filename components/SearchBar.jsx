@@ -6,7 +6,7 @@ import { Box, Container, Divider, Modal, TextField, Typography, Checkbox, Button
 
 
   
-const SearchBar = () => {
+const SearchBar = ({ search }) => {
     const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -32,9 +32,9 @@ const SearchBar = () => {
         <Container sx={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                bgcolor: '#FFFFFF', 
                 color: '#19202D', gap: 2, px: 2, 
                 borderRadius: '5px',
+                boxShadow: 2,
                 width: {xs: '85%', sm: '80%', md: '90%', lg: '100%'} }}
                 disableGutters>
                 
@@ -47,25 +47,29 @@ const SearchBar = () => {
                     <TextField size='small' variant="outlined"
                         sx={{border: 'none',"& fieldset": { border: 'none' }, }}
                         fullWidth
-                        placeholder='Filter by title, companies, expertise'  />
+                        placeholder='Filter by title, companies, time posted' 
+                        onChange={ e => search(e.target.value) } />
                 </Box>
 
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', flex: 1, }}>
                     <LocationOn sx={{ color: '#5964E0'}} /> 
                     <TextField size='small' variant='outlined'
                         sx={{border: 'none',"& fieldset": { border: 'none' },}}
-                        placeholder='Filter by location…' />
+                        placeholder='Filter by location' 
+                        onChange={ e => search(e.target.value) } />
                 </Box>
 
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center',
                     justifyContent: 'space-between', gap: 2, flex: 1 }}>
                     <Box sx={{ display: 'flex', alignItems: 'center'}}>
-                        <Checkbox sx={{ color: '#5964E0'}} /> 
+                        <Checkbox sx={{ color: '#5964E0'}}
+                            onChange={ e => search(e.target.value) } /> 
                         <Typography sx={{ color: '#000'}} >Full Time Only</Typography> 
                     </Box>
                     <Button size='small' sx={{ bgcolor: '#5964E0', color: '#FFFFFF', textTransform: 'capitalize'}} >Search</Button>
                 </Box>
-
+                
+                {/** Mobile Search bar */}
                 <Box sx={{ display: { xs: 'flex', sm: 'none' }, alignItems: 'center',
                     justifyContent: 'space-between', flex: 1 }}>
                     <Button size="small" sx={{ color: '#6E8098'}} onClick={handleOpen}>

@@ -11,7 +11,6 @@ const DetailsPage = () => {
         <Box sx={{ 
             position: 'fixed', mt: -3, 
             zIndex: 'modal', width: "100%"
-            
             }}>
             <DevBioCard />
         </Box>
@@ -31,7 +30,7 @@ const DetailsPage = () => {
             position: 'fixed',
             bottom: 0,
             width: '100%', mt: 5,
-            boxShadow: 1 }}>
+            boxShadow: 2 }}>
 
             <DetailsFooter />
         </Box>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Box, Container, Card, CardMedia, Divider, Typography,  Button, CardContent, CardActions } from '@mui/material';
 
 
@@ -7,9 +8,10 @@ const styles = {
         display: 'flex', 
         position: 'relative',
         alignItems: 'center', 
-        bgcolor: '#FFFFFF', 
+        bgcolor: '', 
         color: '#19202D', gap: 2, 
         borderRadius: '5px',
+        boxShadow: 1,
         width: {xs: '85%', sm: '80%', md: '80%', lg: '55%'}
     },
     cardBio: {
@@ -21,7 +23,7 @@ const styles = {
         bgcolor: 'orange',
     },
     bioImgBox: {
-        flex: 5, display: 'flex', 
+        flex: 6, display: 'flex', 
         flexDirection: { xs: 'column', sm: 'row'}, 
         justifyContent: { xs: 'center', sm: 'space-between'}, 
         alignItems: 'center',
@@ -48,12 +50,13 @@ const DevBioCard = () => {
                         top: -12,
                         borderRadius: '7px',
                         textAlign: 'center',
-                        color: '#fff',
+                        color: 'transparent',
                         bgcolor: { xs: "orange", sm: ''}
 
                         }}>
 
-                        Scoot
+                        <Image src={'./assets/logos/scoot.svg'} alt='kaha' width='40' height='30'/>
+
                     </Box>
                     <Box sx={styles.bioImgBox}>
                             

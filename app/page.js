@@ -1,10 +1,31 @@
 'use client';
-import React from 'react';
+import React, {useState} from 'react';
 import { Box, Container, Grid } from "@mui/material";
 import SearchBar from '@/components/SearchBar';
 import DevCard from "@/components/DevCard";
+import useDevAPI from '@/api/useDevAPI';
 
 export default function Home() {
+  const [devQuery, setDevQuery] = useState('');
+
+  const { devData } = useDevAPI();
+  console.log(devQuery);
+
+  const gridView = devData && devQuery === '' ? devData.map((devjob) => (
+    <Grid key={devjob.id} item xs={4}>
+      <DevCard newjob={devjob} />
+    </Grid>
+  )) : 
+  devData && devData.filter((value)=>{
+    return value.position.toLowerCase().includes(devQuery.toLowerCase()) ||
+    value.company.toLowerCase().includes(devQuery.toLowerCase()) ||
+    value.postedAt.toLowerCase().includes(devQuery.toLowerCase()) ||
+    value.location.toLowerCase().includes(devQuery.toLowerCase())
+  }).map((devjob) => (
+    <Grid key={devjob.id} item xs={4}>
+      <DevCard newjob={devjob} />
+    </Grid>
+  )) ;
 
   return (
       <>
@@ -13,7 +34,7 @@ export default function Home() {
         zIndex: 'modal', width: "100%"
         
         }}>
-        <SearchBar />
+        <SearchBar search={setDevQuery} />
       </Box>
 
       <Container sx={{
@@ -28,25 +49,8 @@ export default function Home() {
           columns={{ xs: 2, sm: 8, md: 12, lg: 12 }}
           sx={{ fontSize: 14, }} >
           
-          <Grid item xs={4}>
-            <DevCard />
-          </Grid>
-
-          <Grid item xs={4}>
-            <DevCard />
-          </Grid>
-
-          <Grid item xs={4}>
-            <DevCard />
-          </Grid>
-
-          <Grid item xs={4}>
-            <DevCard />
-          </Grid>
-
-          <Grid item xs={4}>
-            <DevCard />
-          </Grid>
+          { gridView }
+          
           
         </Grid>
 

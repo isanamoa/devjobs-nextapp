@@ -9,7 +9,7 @@ const DetailsMain = () => {
         flexDirection: 'column',
         width: {xs: '85%', sm: '80%', md: '80%', lg: '55%'},
         bgcolor: '',
-        boxShadow: 1,
+        boxShadow: 2,
         p: 2,
         }}  
         disableGutters >
