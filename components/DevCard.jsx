@@ -50,7 +50,7 @@ const DevCard = ({ newjob }) => {
                     <Typography variant="h1" component="div">
                     </Typography>
                     
-                    <Typography variant="body1" sx={{ fontWeight: 500, my: 1, fontSize: 20 }} >
+                    <Typography variant="body1" sx={{ fontWeight: 500, my: 1, fontSize: '1.1rem' }} >
                         {newjob.position}
                     </Typography>
 

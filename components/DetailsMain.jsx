@@ -7,7 +7,7 @@ const DetailsMain = () => {
         bgcolor: 'green', 
         display: 'flex', 
         flexDirection: 'column',
-        width: {xs: '85%', sm: '80%', md: '80%', lg: '55%'},
+        width: {xs: '85%', sm: '90%', md: '80%', lg: '55%'},
         bgcolor: '',
         boxShadow: 2,
         p: 2,

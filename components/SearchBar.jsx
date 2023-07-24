@@ -22,7 +22,7 @@ const SearchBar = ({ search }) => {
             display: { sm: 'none'},    
             bgcolor: 'background.paper',
             border: '2px solid #000',
-            boxShadow: 24,
+            boxShadow: 2,
             p: 4,
         }
     };
@@ -32,13 +32,14 @@ const SearchBar = ({ search }) => {
         <Container sx={{ 
                 display: 'flex', 
                 alignItems: 'center', 
-                color: '#19202D', gap: 2, px: 2, 
+                bgcolor: '#ffffff',
+                color: '#19202D', gap: 1, px: 2, 
                 borderRadius: '5px',
                 boxShadow: 2,
-                width: {xs: '85%', sm: '80%', md: '90%', lg: '100%'} }}
+                width: {xs: '85%', sm: '90%', md: '90%', lg: '100%'} }}
                 disableGutters>
                 
-                <Box sx={{ display: 'flex', alignItems: 'center', flex: 2, gap: 1,
+                <Box sx={{ display: 'flex', alignItems: 'center', flex: {xs: 2, sm: 1,  lg: 2}, gap: 1,
                         "& .MuiInputBase-input": {
                         overflow: "hidden",
                         textOverflow: "ellipsis"
@@ -51,7 +52,7 @@ const SearchBar = ({ search }) => {
                         onChange={ e => search(e.target.value) } />
                 </Box>
 
-                <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', flex: 1, }}>
+                <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center', flex: {xs: 1, sm: 1,  lg: 1}, }}>
                     <LocationOn sx={{ color: '#5964E0'}} /> 
                     <TextField size='small' variant='outlined'
                         sx={{border: 'none',"& fieldset": { border: 'none' },}}
@@ -60,11 +61,11 @@ const SearchBar = ({ search }) => {
                 </Box>
 
                 <Box sx={{ display: { xs: 'none', sm: 'flex' }, alignItems: 'center',
-                    justifyContent: 'space-between', gap: 2, flex: 1 }}>
+                    justifyContent: 'space-between', gap: 2, flex: {xs: 1, sm: 2,  lg: 1} }}>
                     <Box sx={{ display: 'flex', alignItems: 'center'}}>
                         <Checkbox sx={{ color: '#5964E0'}}
                             onChange={ e => search(e.target.value) } /> 
-                        <Typography sx={{ color: '#000'}} >Full Time Only</Typography> 
+                        <Typography sx={{ color: '#000', fontSize: '0.9rem'}} >Full Time Only</Typography> 
                     </Box>
                     <Button size='small' sx={{ bgcolor: '#5964E0', color: '#FFFFFF', textTransform: 'capitalize'}} >Search</Button>
                 </Box>

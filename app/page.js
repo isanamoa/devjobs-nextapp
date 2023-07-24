@@ -9,7 +9,7 @@ export default function Home() {
   const [devQuery, setDevQuery] = useState('');
 
   const { devData } = useDevAPI();
-  console.log(devQuery);
+  //console.log(devQuery);
 
   const gridView = devData && devQuery === '' ? devData.map((devjob) => (
     <Grid key={devjob.id} item xs={4}>
@@ -41,7 +41,7 @@ export default function Home() {
         display: 'flex', mt: 7,
         alignItems: 'center', 
         justifyContent: {xs:'center', md:'space-between'}, 
-        width: {xs: '85%', sm: '80%', md: '90%', lg: '100%'},}} 
+        width: {xs: '85%', sm: '90%', md: '90%', lg: '100%'},}} 
         disableGutters>
 
         <Grid container 

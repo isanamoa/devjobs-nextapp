@@ -17,7 +17,7 @@ const Header = () => {
 
     return (
         <AppBar sx={{ bgcolor: '#5964E0', backgroundImage: 'url("./assets/desktop/bg-pattern-header.svg")',
-            borderRadius: { xs: 0, sm: '0px 0px 0px 70px' }, 
+            borderRadius: { xs: 0, sm: '0px 0px 0px 60px' }, 
             height: '100px', 
             display: 'flex', 
             alignItems: 'center', 
