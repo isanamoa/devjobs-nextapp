@@ -1,18 +1,27 @@
 'use client';
 import React from 'react'
-import { Box, Container, Grid } from "@mui/material";
+import { Box, Card, CssBaseline } from "@mui/material";
 import DetailsFooter from '@/components/DetailsFooter';
 import DetailsMain from '@/components/DetailsMain';
 import DevBioCard from '@/components/DevBioCard';
+import useDevAPI from '@/api/useDevAPI';
+import Cookies from 'js-cookie';
 
 const DetailsPage = () => {
+
+  const { devData } = useDevAPI();
+  //console.log(devData);
+  
+  const devDetailData = devData === null ? [] : devData?.filter(job => job.id === parseInt(Cookies.get('devCookie')));
+  //console.log(devDetailData);
+
   return (
     <>
         <Box sx={{ 
             position: 'fixed', mt: -3, 
             zIndex: 'modal', width: "100%"
             }}>
-            <DevBioCard />
+            <DevBioCard biodata={devDetailData}/>
         </Box>
 
         <Box sx={{
@@ -24,16 +33,15 @@ const DetailsPage = () => {
             }} 
         >
             
-        <DetailsMain />
+        <DetailsMain maindata={devDetailData} />
 
-        <Box sx={{
-            position: 'fixed',
-            bottom: 0,
+        <Card sx={{
+            position: '',
             width: '100%', mt: 5,
             boxShadow: 2 }}>
 
-            <DetailsFooter />
-        </Box>
+            <DetailsFooter footdata={devDetailData} />
+        </Card>
 
         </Box>
     </>

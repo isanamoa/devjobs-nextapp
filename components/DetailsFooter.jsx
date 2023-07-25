@@ -1,8 +1,9 @@
 import React from 'react'
-import { Box, Container, Typography, Button } from "@mui/material";
+import { Box, Container, Typography, Link } from "@mui/material";
 
-const DetailsFooter = () => {
+const DetailsFooter = ({ footdata }) => {
   return (
+    footdata[0] &&
     <Container sx={{
         bgcolor: 'green', 
         display: 'flex', 
@@ -23,18 +24,27 @@ const DetailsFooter = () => {
             
             <Box sx={{ flex: 5, display: { xs: 'none', sm: 'block'} }} >
                 <Typography variant="body1" sx={{ fontWeight: 500, my: 0.5, fontSize: 20 }} >
-                    Senior Software Engineer
+                    {footdata[0]?.position}
                 </Typography>
 
                 <Typography sx={{ fontSize: 16, mb: 1 }} color="text.secondary">
-                    So Digital Inc.
+                    {footdata[0]?.company}
                 </Typography>
             </Box>
-            <Box sx={{ flex: 1 }}>
-                <Button fullWidth sx={{ bgcolor: '#5964E0', color: '#fff'}}>Apply Now</Button>
+            <Box sx={{ flex: 1, }}>
+                <Link 
+                    href={footdata[0]?.apply === undefined ? "" : footdata[0]?.apply} 
+                    target='_blank' 
+                    rel="noopener"
+                    color='#FFFFFF'
+                    underline="none"
+                    sx={{  bgcolor: '#5964E0', py: 0.5, px: 1.5, borderRadius: '3px' }}
+                    >
+                    Apply Now
+                </Link>
             </Box>
         </Box>
-
+            
     </Container>
   )
 }

@@ -3,15 +3,16 @@ import { useRouter } from 'next/navigation';
 import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 //import { contextData } from '@/app/layout';
 import Image from 'next/image';
-
+import Cookies from 'js-cookie';
 
 const DevCard = ({ newjob }) => {
     const router = useRouter();
 
     //const { navbarSate, setNavbarState } = useContext(contextData);
 
-    const handleDevDetails = () => {
+    const handleDevDetails = (jobId) => {
         router.push('/details-page');
+        Cookies.set('devCookie', jobId)
         //setNavbarState(prev=>!prev);
     }
 
@@ -21,9 +22,9 @@ const DevCard = ({ newjob }) => {
             sx={{
                 maxwidth: { xs: '100%', sm: 350 }
              }}>
-            <Card component='button' onClick={handleDevDetails} 
+            <Card component='button' onClick={()=>handleDevDetails(newjob.id)} 
                 sx={{ width: '100%', textAlign: 'left', bg: 'transparent',
-                border: 'none',"& fieldset": { border: 'none'} }} >
+                border: 'none',"& fieldset": { border: 'none'}, cursor: 'pointer' }} >
                 <Box 
                     sx={{ 
                         position: 'absolute', 
