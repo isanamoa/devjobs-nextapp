@@ -38,7 +38,7 @@ const DetailsPage = () => {
         <Card sx={{
             position: '',
             width: '100%', mt: 5,
-            boxShadow: 2 }}>
+            boxShadow: 2, bgcolor: '' }}>
 
             <DetailsFooter footdata={devDetailData} />
         </Card>

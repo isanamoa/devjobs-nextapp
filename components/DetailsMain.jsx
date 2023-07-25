@@ -44,15 +44,19 @@ const DetailsMain = ({ maindata }) => {
                         {maindata[0]?.location}
                     </Typography>
                 </Box>
-                <Box sx={{ flex: 1, }}>
+                <Box sx={{ width: 120 }}>
                     <Link 
                         href={maindata[0]?.apply === undefined ? "" : maindata[0]?.apply} 
                         target='_blank' 
                         rel="noopener"
                         color='#FFFFFF'
                         underline="none"
-                        sx={{ bgcolor: '#5964E0', py: 0.5, px: 1.5, borderRadius: '3px' }}
-                            >
+                        sx={{ bgcolor: '#5964E0', 
+                            py: 0.5, px: 1.5, 
+                            borderRadius: '3px',
+                            
+                        }}
+                        >
                         Apply Now
                     </Link>
                 </Box>

@@ -12,7 +12,7 @@ const styles = {
         color: '#19202D', gap: 2, 
         borderRadius: '5px',
         boxShadow: 1,
-        width: {xs: '85%', sm: '80%', md: '80%', lg: '55%'}
+        width: {xs: '85%', sm: '90%', md: '80%', lg: '55%'}
     },
     cardBio: {
         display: 'flex', 
@@ -20,7 +20,7 @@ const styles = {
         justifyContent: 'space-between', 
         alignItems: 'center',
         width: '100%',
-        bgcolor: 'orange',
+        bgcolor: '',
     },
     bioImgBox: {
         flex: 6, display: 'flex', 
@@ -44,28 +44,33 @@ const DevBioCard = ({ biodata }) => {
             <Container sx={ styles.contContent} disableGutters>
                 
                 <Card  sx={ styles.cardBio }>
-                    <Box sx={{ flex:  1, 
+                    <CardMedia
+                        component="img"
+                        image={biodata[0]?.logo}
+                        alt="Company Logo"
+                        sx={{ flex:  1, 
                         position: { xs: 'absolute', sm: 'static'},
-                        top: -12,
-                        borderRadius: '7px',
+                        top: -20,
+                        borderRadius: '4px',
                         textAlign: 'center',
                         color: 'transparent',
+                        height: {xs:40, sm:80 },
+                        width: 52,
+                        p: 1,
+                        objectFit: "contain",
                         bgcolor: { xs: `${biodata[0]?.logoBackground}`, sm: ''}
 
-                        }}>
+                        }} />
 
-                        <Image  src={biodata[0]?.logo} alt='kaha' width='40' height='30'/>
-
-                    </Box>
                     <Box sx={styles.bioImgBox}>
                             
-                        <CardContent sx={{ flex: { sm: 2, md: 3},
+                        <CardContent sx={{ flex: { sm: 1, md: 3},
                              color: '', mt: { xs: 2, sm: 0} }}>
                             <Typography sx={{ textAlign: { xs: 'center', sm: 'left'} }}>{biodata[0]?.company}</Typography>
                             <Typography sx={{ textAlign: { xs: 'center', sm: 'left'}, color: 'gray'}}>{biodata[0]?.company === undefined ? '' : `${biodata[0]?.company.toLowerCase()}.com`}</Typography>
                         </CardContent>
 
-                        <CardActions sx={{ flex: 1, }}>
+                        <CardActions sx={{ width: 150 }}>
                             <Link 
                                 href={biodata[0]?.website === undefined ? "" : biodata[0]?.website} 
                                 target='_blank' 
